@@ -16,7 +16,7 @@
 
     ![](https://habrastorage.org/web/0d2/dc8/4c4/0d2dc84c47d34f648de50c353188e425.png)
     
-3) В линкер файле изменить адреса программы и добавить секцию checksum
+3) В линкер файле *.icf изменить адреса программы и добавить секцию checksum
 > /*###ICF### Section handled by ICF editor, don't touch! ****/
 /*-Editor annotation file-*/
 /* IcfEditorFile="$TOOLKIT_DIR$\config\ide\IcfEditor\cortex_v1_0.xml" */
