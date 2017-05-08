@@ -18,58 +18,58 @@
     
 3) В линкер файле *.icf изменить адреса программы и добавить секцию checksum
 
-/*###ICF### Section handled by ICF editor, don't touch! ****/
+>/*###ICF### Section handled by ICF editor, don't touch! ****/
 
-/*-Editor annotation file-*/
+>/*-Editor annotation file-*/
 
-/* IcfEditorFile="$TOOLKIT_DIR$\config\ide\IcfEditor\cortex_v1_0.xml" */
+>/* IcfEditorFile="$TOOLKIT_DIR$\config\ide\IcfEditor\cortex_v1_0.xml" */
 
-/*-Specials-*/
+>/*-Specials-*/
 
-define symbol __ICFEDIT_intvec_start__ = 0x08006000;
+>define symbol __ICFEDIT_intvec_start__ = 0x08006000;
 
-/*-Memory Regions-*/
+>/*-Memory Regions-*/
 
-define symbol __ICFEDIT_region_ROM_start__ = 0x08006000;
+>define symbol __ICFEDIT_region_ROM_start__ = 0x08006000;
 
-define symbol __ICFEDIT_region_ROM_end__   = 0x0800FBFF;
+>define symbol __ICFEDIT_region_ROM_end__   = 0x0800FBFF;
 
-define symbol __ICFEDIT_region_RAM_start__ = 0x20000000;
+>define symbol __ICFEDIT_region_RAM_start__ = 0x20000000;
 
-define symbol __ICFEDIT_region_RAM_end__   = 0x20004FFF;
+>define symbol __ICFEDIT_region_RAM_end__   = 0x20004FFF;
 
-/*-Sizes-*/
+>/*-Sizes-*/
 
-define symbol __ICFEDIT_size_cstack__ = 0x800;
+>define symbol __ICFEDIT_size_cstack__ = 0x800;
 
-define symbol __ICFEDIT_size_heap__   = 0x800;
+>define symbol __ICFEDIT_size_heap__   = 0x800;
 
-/**** End of ICF editor section. ###ICF###*/
+>/**** End of ICF editor section. ###ICF###*/
 
-define memory mem with size = 4G;
+>define memory mem with size = 4G;
 
-define region ROM_region   = mem:[from __ICFEDIT_region_ROM_start__   to __ICFEDIT_region_ROM_end__];
+>define region ROM_region   = mem:[from __ICFEDIT_region_ROM_start__   to __ICFEDIT_region_ROM_end__];
 
-define region RAM_region   = mem:[from __ICFEDIT_region_RAM_start__   to __ICFEDIT_region_RAM_end__];
+>define region RAM_region   = mem:[from __ICFEDIT_region_RAM_start__   to __ICFEDIT_region_RAM_end__];
 
-define block CSTACK    with alignment = 8, size = __ICFEDIT_size_cstack__   { };
+>define block CSTACK    with alignment = 8, size = __ICFEDIT_size_cstack__   { };
 
-define block HEAP      with alignment = 8, size = __ICFEDIT_size_heap__     { };
+>define block HEAP      with alignment = 8, size = __ICFEDIT_size_heap__     { };
 
-initialize by copy { readwrite };
+>initialize by copy { readwrite };
 
-do not initialize  { section .noinit };
+>do not initialize  { section .noinit };
 
-place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
+>place at address mem:__ICFEDIT_intvec_start__ { readonly section .intvec };
 
-place in ROM_region   { readonly };
+>place in ROM_region   { readonly };
 
-place in RAM_region   { readwrite,
+>place in RAM_region   { readwrite,
                         block CSTACK, block HEAP };
 
-/*place at address mem:__ICFEDIT_region_ROM_end__-3 { readonly section .checksum }; */
+>/*place at address mem:__ICFEDIT_region_ROM_end__-3 { readonly section .checksum }; */
 
-place at end of ROM_region { readonly section .checksum };
+>place at end of ROM_region { readonly section .checksum };
 
 4) Чтобы вызвать загрузчик из основной программы, необходимо записать в регистр RTC_BKP_DR1 число, отличное от нуля (а) и перезагрузить микроконтроллер (б).
    
