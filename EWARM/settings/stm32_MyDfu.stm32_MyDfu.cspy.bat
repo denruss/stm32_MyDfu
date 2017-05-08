@@ -25,7 +25,7 @@ if not "%~1" == "" goto debugFile
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.general.xcl" --backend -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.general.xcl" --backend -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.driver.xcl" 
 
 @echo off 
 goto end 
@@ -34,7 +34,7 @@ goto end
 
 @echo on 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.3\common\bin\cspybat" -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.general.xcl" "--debug_file=%~1" --backend -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.driver.xcl" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.5\common\bin\cspybat" -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.general.xcl" "--debug_file=%~1" --backend -f "C:\Projects\IAR\stm32_MyDfu\EWARM\settings\stm32_MyDfu.stm32_MyDfu.driver.xcl" 
 
 @echo off 
 :end

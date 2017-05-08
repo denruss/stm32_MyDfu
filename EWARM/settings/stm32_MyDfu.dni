@@ -15,6 +15,7 @@ Watch1=_ 0 "" 0 "" 0 "" 0 "" 0 0 0 0
 CStepIntDis=_ 0
 stlinkserialNo=2798FD0D
 stlinkfoundProbes=
+LeaveTargetRunning=_ 0
 [DebugChecksum]
 Checksum=-602731029
 [Exceptions]
